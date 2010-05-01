@@ -11,14 +11,6 @@ RAILS_GEM_VERSION = '2.2.3' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  ActionMailer::Base.sendmail_settings = {
-    :address => "smtp.sendgrid.net",
-    :port => '25',
-    :domain => ENV['SENDGRID_DOMAIN'],
-    :authentication => :plain,
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD']
-  }
   config.gem "authlogic"
   config.time_zone = 'UTC'
   config.action_controller.session = {
