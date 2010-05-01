@@ -1,9 +1,0 @@
-.box
-  %h2= "Add issue"
-  .block
-  -form_for [@sucky_thing, Issue.new] do |f|
-    %fieldset
-      %legend Add issue
-      =f.error_messages
-      =f.text_field :content
-      =submit_tag :Add

@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
   skip_before_filter :require_user, :only => [:new, :create]
-  def new
-    @user = User.new
-  end
 
   def create
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
-      redirect_back_or_default :controller => :sucky_things
+      redirect_back_or_default :controller => :home
     else
       render :action => :new
     end

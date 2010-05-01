@@ -2,39 +2,38 @@
 %html
   %head
     %link{:rel => 'shortcut icon', :href => 'favicon.ico'}
-    %title= "Conceptor | " + controller.controller_name.capitalize.humanize
+    %title= "Oilzilla | " + controller.controller_name.capitalize.humanize
     =stylesheet_link_tag :all, :cache => true, :recursive => true
     =javascript_include_tag :all, :cache => true, :recursive => true 
-    %meta{ :name => "google-site-verification", :content => "Jcdz0FHEEQt2SPIsLFoQvKAwMrztPF18ca2DysH71II"}
   %body
-    .container_16
-      .grid_16
+    .container_12
+      .grid_12
         %h1#branding
-          = link_to "Conceptor", :controller => "home" 
+          = link_to "Oilzilla", :controller => "home" 
       .clear
-      .grid_16= render :partial => 'layouts/menu'
+      .grid_12= render :partial => 'layouts/menu'
       .clear
-      .grid_16
+      .grid_12
         %h2#page-heading= controller.controller_name.capitalize.humanize
       .clear
       - if flash[:error]
-        .notice.grid_16
+        .notice.grid_12
           .box
             %h2 Error
             .block
               %p=flash[:error]
         .clear
       - if flash[:notice]
-        .notice.grid_16
+        .notice.grid_12
           .box
             %h2 Notice
             .block
               %p=flash[:notice]
         .clear
-      .grid_16
+      .grid_12
         = yield
       .clear
-      .grid_16#site_info
+      .grid_12#site_info
         .box
-          %p Conceptor, created by Jeff Dickey
+          %p 2010 Oilzilla
       .clear

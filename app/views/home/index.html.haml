@@ -1,9 +1,4 @@
-.grid_11.alpha
-  .box.articles
-    %h2 What is this?
-    .article.first
-      I need to fill this out still
-.grid_5.omega
+.grid_5.omega.prepend_2
   -if current_user_session
     .box
       %h2 User Info
@@ -29,8 +24,11 @@
               = f.check_box :remember_me
               = f.label :remember_me
             %input.login.button{ :type => "submit", :value => "Login"}
-        %form{:action => ""}
-          %fieldset
+        -form_for @user, :url => account_path do |f|
+          %fieldset.login
             %legend Register
             %p If you do not already have an account, please create a new account to register
-            =link_to "Create account", new_user_path
+            %p
+              =f.label :email
+              =f.text_field :email
+            %input.login.button{ :type => "submit", :value => "Register"}
