@@ -9,14 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100501194653) do
+ActiveRecord::Schema.define(:version => 20100501221839) do
+
+  create_table "auto_years", :force => true do |t|
+    t.integer  "model_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cars", :force => true do |t|
     t.integer  "user_id"
-    t.string   "make"
-    t.string   "model"
-    t.integer  "year"
-    t.string   "trim"
+    t.integer  "make_id"
+    t.integer  "model_id"
+    t.integer  "auto_year_id"
+    t.integer  "trim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +40,19 @@ ActiveRecord::Schema.define(:version => 20100501194653) do
     t.integer  "sucky_thing_id"
     t.integer  "user_id"
     t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "makes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "models", :force => true do |t|
+    t.integer  "make_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +78,13 @@ ActiveRecord::Schema.define(:version => 20100501194653) do
   create_table "sucky_things", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trims", :force => true do |t|
+    t.integer  "auto_year_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

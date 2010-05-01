@@ -3,6 +3,14 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(params[:car])
+    @car.make = Make.find(:first, :conditions => { :name => @car.make_string })
+    @car.make = Make.new(:name => @car.make_string) unless @car.make
+    @car.model = @car.make.models.find(:first, :conditions => { :name => @car.model_string })
+    @car.model = Model.new(:name => @car.model_string, :make => @car.make) unless @car.model
+    @car.auto_year = @car.model.auto_years.find(:first, :conditions => { :name => @car.auto_year_int })
+    @car.auto_year = AutoYear.new(:name => @car.auto_year_int, :model => @car.model) unless @car.auto_year
+    @car.trim = @car.auto_year.trims.find(:first, :conditions => { :name => @car.trim_string })
+    @car.trim = Trim.new(:name => @car.trim_string, :auto_year => @car.auto_year) unless @car.trim
     @car.user = current_user
     if @car.save
       flash[:notice] = "Car added!"
