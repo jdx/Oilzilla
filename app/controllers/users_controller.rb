@@ -3,11 +3,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.password = "whg431"
-    @user.password_confirmation = "whg431"
+    password = "whg431"
+    @user.password = password
+    @user.password_confirmation = password
     if @user.save
+      Notifier.deliver_signup_notification(@user, password)
       flash[:notice] = "Account registered!"
-      redirect_back_or_default :controller => :show
+      redirect_back_or_default :controller => :cars
     else
       render :action => :new
     end
