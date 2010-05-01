@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     def require_no_user
       if current_user
         store_location
-        redirect_to account_url
+        redirect_to new_user_url
         return false
       end
     end

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
+  map.resources :cars
   map.new_user_session '/', :controller => 'home'
   map.new_user '/login', :controller => 'users', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'

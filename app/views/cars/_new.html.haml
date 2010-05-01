@@ -1,0 +1,16 @@
+- form_for @car do |f|
+  %fieldset
+    =f.error_messages
+    %p
+      =f.label :make
+      =f.text_field :make
+    %p
+      =f.label :model
+      =f.text_field :model
+    %p
+      =f.label :year
+      =f.text_field :year
+    %p
+      =f.label :trim
+      =f.text_field :trim
+    %input{ :type => "submit", :value => "Add"}

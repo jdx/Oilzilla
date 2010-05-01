@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100408071752) do
+ActiveRecord::Schema.define(:version => 20100501194653) do
+
+  create_table "cars", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "make"
+    t.string   "model"
+    t.integer  "year"
+    t.string   "trim"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "creative_hows", :force => true do |t|
     t.text     "content"

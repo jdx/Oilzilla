@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  make: MyString
+  model: MyString
+  year: 1
+  trim: MyString
+
+two:
+  make: MyString
+  model: MyString
+  year: 1
+  trim: MyString
