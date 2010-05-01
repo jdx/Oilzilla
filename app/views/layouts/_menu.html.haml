@@ -1,5 +1,4 @@
 %ul.nav.main
   %li= link_to "Home", :controller => "home"
-  %li= link_to "Things that suck", :controller => "sucky_things"
   -if @current_user
     %li.secondary= link_to "Logout", logout_path
