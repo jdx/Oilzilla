@@ -1,0 +1,2 @@
+module WhyItSucksExplanationHelper
+end

@@ -1,0 +1,25 @@
+.grid_6.alpha
+  .box
+    %h2 Thing that sucks
+    .block
+      %h3= @sucky_thing.to_s.titleize
+      %ul.menu
+        %li= link_to "Explain the issues", new_sucky_thing_why_it_sucks_explanation_path(@sucky_thing)
+        -if @creative_explanation
+          %li
+            %a{:href => sucky_thing_issues_path(@sucky_thing)}
+              ="Organize your issue explanation"
+        -if @sucky_thing.issues.size > 0
+          %li
+            %a{:href => sucky_thing_creative_how_path(@sucky_thing)}
+              ="Explain the solutions"
+        -if @sucky_thing.creative_how
+          %li
+            %a{:href => sucky_thing_solutions_path(@sucky_thing)}
+              ="Organize your solution explanation"
+-if @sucky_thing.issues.size > 0
+  .grid_5
+    =render :partial => "issues/issue_list", :locals => { :issues => @sucky_thing.issues }
+-if @sucky_thing.solutions.size > 0
+  .grid_5.omega
+    =render :partial => "solutions/solution_list", :locals => { :solutions => @sucky_thing.solutions }

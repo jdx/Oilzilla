@@ -1,0 +1,2 @@
+module IssueListsHelper
+end

@@ -1,0 +1,20 @@
+.grid_8.alpha
+  .box
+    %h2 What sucks?
+    .block
+      %p The world is full of problems. Tell us a topic that sucks.
+      -form_for @sucky_thing do |f|
+        =f.error_messages
+        %p
+          =f.text_field :name
+          =submit_tag "Really sucks"
+      %br/ 
+-if @sucky_things and @sucky_things.size != 0
+  .grid_8.omega
+    .box
+      %h2 Things that suck
+      .block
+        %h4="According to you, #{pluralize(@sucky_things.size, "thing sucks", "things suck")}"
+        %ul.menu
+          -@sucky_things.each do |sucky_thing|
+            %li=link_to sucky_thing, sucky_thing

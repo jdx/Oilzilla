@@ -1,0 +1,7 @@
+.box
+  %h2= "Solutions to fix #{@sucky_thing}"
+  .block
+    %p 
+    %ul
+      -solutions.each do |solution|
+        %li= solution.content

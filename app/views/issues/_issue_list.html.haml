@@ -1,0 +1,7 @@
+.box
+  %h2= "Reasons why #{@sucky_thing} sucks"
+  .block
+    %p 
+    %ul
+      -issues.each do |issue|
+        %li= issue.content
