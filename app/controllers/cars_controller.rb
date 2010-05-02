@@ -11,7 +11,7 @@ class CarsController < ApplicationController
     @car.auto_year = AutoYear.new(:name => @car.auto_year_int, :model => @car.model) unless @car.auto_year
     @car.trim = @car.auto_year.trims.find(:first, :conditions => { :name => @car.trim_string })
     @car.trim = Trim.new(:name => @car.trim_string, :auto_year => @car.auto_year) unless @car.trim
-    @car.user = current_user
+    @car.users << current_user
     if @car.save
       flash[:notice] = "Car added!"
       redirect_back_or_default :controller => :home

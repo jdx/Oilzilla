@@ -1,7 +1,7 @@
 class CreateAutoYears < ActiveRecord::Migration
   def self.up
     create_table :auto_years do |t|
-      t.integer :model_id
+      t.references :model
       t.string :name
 
       t.timestamps

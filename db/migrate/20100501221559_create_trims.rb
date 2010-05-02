@@ -1,7 +1,7 @@
 class CreateTrims < ActiveRecord::Migration
   def self.up
     create_table :trims do |t|
-      t.integer :auto_year_id
+      t.references :auto_year
       t.string :name
 
       t.timestamps

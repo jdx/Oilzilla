@@ -2,15 +2,15 @@
   %fieldset
     =f.error_messages
     %p
-      =f.label :make_string
+      =f.label :make_string, "Make"
       =f.text_field :make_string
     %p
-      =f.label :model_string
+      =f.label :model_string, "Model"
       =f.text_field :model_string
     %p
-      =f.label :auto_year_int
+      =f.label :auto_year_int, "Year"
       =f.text_field :auto_year_int
     %p
-      =f.label :trim_string
+      =f.label :trim_string, "Trim"
       =f.text_field :trim_string
     %input{ :type => "submit", :value => "Add"}
