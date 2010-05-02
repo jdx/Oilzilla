@@ -1,6 +1,7 @@
 source "http://gems.github.com"
-source "http://gemcutter.org"
+source :gemcutter
 
 gem "rails"
 gem "authlogic"
 gem "haml"
+gem 'sqlite3-ruby', :require => 'sqlite3'
