@@ -27,11 +27,9 @@ class CarsController < ApplicationController
   
   def new
     @car = Car.new
-    render :partial => "new"
   end
   
   def show
     @car = Car.find(params[:id])
-    render :partial => "show"
   end
 end

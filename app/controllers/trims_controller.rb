@@ -1,9 +1,12 @@
 class TrimsController < ApplicationController
   def index
-    if params[:auto_year_id]
-      @trims = Trim.find(:all, :conditions => { :auto_year_id => params[:auto_year_id] }, :select => "name").map(&:name)
+    if params[:auto_year]
+      conditions = ["auto_year_id = #{params[:auto_year_id]} AND name LIKE ?", "#{params[:term]}%"]
     else
-      @trims = Trim.find(:all, :select => "name").map(&:name)
+      conditions = ["name LIKE ?", "#{params[:term]}%"]
+    end
+    @trims = Trim.find(:all, :conditions => conditions, :select => "name, id").map do |m|
+        trims = { :value => m.name, :id => m.id }
     end
     respond_to do |format|
         format.xml  { render :xml => @trims }
