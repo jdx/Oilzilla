@@ -1,6 +1,6 @@
 class TrimsController < ApplicationController
   def index
-    if params[:auto_year]
+    if params[:auto_year_id]
       conditions = ["auto_year_id = #{params[:auto_year_id]} AND name LIKE ?", "#{params[:term]}%"]
     else
       conditions = ["name LIKE ?", "#{params[:term]}%"]
